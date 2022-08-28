@@ -1,0 +1,93 @@
+<div class="wrapper">
+  <div class="container">
+    <form class="form" [formGroup]="tipForm">
+      <div class="form__bill">
+        <label for="bill">Bill</label>
+        <input
+          type="number"
+          formControlName="bill"
+          placeholder="0"
+          class="form__input"
+        />
+      </div>
+      <div class="form__tip">
+        <p>Select Tip %</p>
+        <div class="form__tip-buttons">
+          <button
+            class="form__tip-button"
+            (click)="tipIs5()"
+            [ngClass]="{ active: choosen5 }"
+          >
+            5%
+          </button>
+          <button
+            class="form__tip-button"
+            (click)="tipIs10()"
+            [ngClass]="{ active: choosen10 }"
+          >
+            10%
+          </button>
+          <button
+            class="form__tip-button"
+            (click)="tipIs15()"
+            [ngClass]="{ active: choosen15 }"
+          >
+            15%
+          </button>
+          <button
+            class="form__tip-button"
+            (click)="tipIs25()"
+            [ngClass]="{ active: choosen25 }"
+          >
+            25%
+          </button>
+          <button
+            class="form__tip-button"
+            (click)="tipIs50()"
+            [ngClass]="{ active: choosen50 }"
+          >
+            50%
+          </button>
+          <div class="form__tip-input">
+            <input
+              type="number"
+              class=""
+              placeholder="Custom"
+              formControlName="tip"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form__people" [ngClass]="{ error: showError }">
+        <label for="people">Number of People <span>Can't be zero</span></label>
+        <input
+          type="number"
+          name=""
+          id=""
+          placeholder="0"
+          class="form__input"
+          formControlName="people"
+        />
+      </div>
+    </form>
+    <div class="result">
+      <div class="result__money">
+        <div class="result__tip">
+          <div class="result__tip-text">
+            Tip Amount <br />
+            <span>/ person</span>
+          </div>
+          <div class="result__tip-amount">$ {{ tipAmount }}</div>
+        </div>
+        <div class="result__tip">
+          <div class="result__tip-text">
+            Total <br />
+            <span>/ person</span>
+          </div>
+          <div class="result__tip-amount">$ {{ total }}</div>
+        </div>
+      </div>
+      <button class="result__reset" (click)="onReset()">Reset</button>
+    </div>
+  </div>
+</div>
